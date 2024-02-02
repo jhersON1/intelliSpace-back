@@ -58,16 +58,22 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## IntelliSpace API
+```bash
+# 1.- Clone project
+$ git clone ...
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# 2.- Install dependencies
+$ npm install
 
-## Stay in touch
+# 3.- clone .env.template file and rename to .env
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# 4.- Change environment variable 
 
-## License
+# 5.- Up data base
+$ docker-compose up -d
 
-Nest is [MIT licensed](LICENSE).
+# 6.- Run
+$ npm run start:dev
+```
+
