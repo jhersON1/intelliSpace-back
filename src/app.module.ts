@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CategoryModule } from './category/category.module';
 import { ProductModule } from './product/product.module';
 import { CommonModule } from './common/common.module';
 
@@ -21,8 +22,8 @@ import { CommonModule } from './common/common.module';
       synchronize: true,
     }),
 
+    CategoryModule,
     ProductModule,
-
     CommonModule,
   ],
   controllers: [AppController],
