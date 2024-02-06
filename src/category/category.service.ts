@@ -58,7 +58,7 @@ export class CategoryService {
     return updatedCategory;
   
     } catch (error) {
-      
+      console.log(error);
     }
      
   }
