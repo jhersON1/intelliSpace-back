@@ -15,7 +15,7 @@ export class CategoryService {
   }
   async create(createCategoryDto: CreateCategoryDto) {
     try {
-      const {name,description}= createCategoryDto;
+      const {name,description} = createCategoryDto;
       const newCategory = this.categoryRepository.create({
         name,
         description,
@@ -61,9 +61,5 @@ export class CategoryService {
       
     }
      
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} category`;
   }
 }
