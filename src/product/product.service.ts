@@ -12,6 +12,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { isUUID } from 'class-validator';
 import { PaginationDto } from '../common/dtos/pagination.dto';
+import { Category } from '../category/entities/category.entity';
 
 @Injectable()
 export class ProductService {
@@ -20,11 +21,22 @@ export class ProductService {
   constructor(
     @InjectRepository(Product)
     private readonly productRepository: Repository<Product>,
+    @InjectRepository(Category)
+    private readonly categoryRepository: Repository<Category>,
   ) {}
 
   async create(createProductDto: CreateProductDto) {
     try {
-      const product = this.productRepository.create(createProductDto);
+      const category = await this.categoryRepository.findOne({
+        where: { id: createProductDto.categoryId },
+      });
+      if (!category) {
+        throw new NotFoundException(
+          `Category with ID "${createProductDto.categoryId}" not found`,
+        );
+      }
+
+      const product = this.productRepository.create({ ...createProductDto, category });
       await this.productRepository.save(product);
 
       return product;

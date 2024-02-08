@@ -34,4 +34,8 @@ export class CreateProductDto {
   @IsBoolean()
   @IsOptional()
   activate?: boolean;
+
+  @IsString()
+  @IsOptional()
+  categoryId?: string;
 }
