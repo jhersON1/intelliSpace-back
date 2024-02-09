@@ -9,7 +9,8 @@ import { Category } from '../../category/entities/category.entity';
 
 @Entity()
 export class Product {
-  @PrimaryGeneratedColumn('uuid')
+
+  @PrimaryGeneratedColumn()
   id: string;
 
   @Column('text')
